@@ -1,0 +1,9 @@
+<div *ngIf="currentStep" class="tour-overlay">
+    <div class="tour-box" [style.top.px]="boxPosition.top" [style.left.px]="boxPosition.left">
+      <h3>{{ currentStep.title }}</h3>
+      <p>{{ currentStep.description }}</p>
+      <button *ngIf="!isFirstStep()" (click)="previous()">Previous</button>
+      <button *ngIf="!isLastStep()" (click)="next()">Next</button>
+      <button *ngIf="isLastStep()" (click)="endTour()">Finish</button>
+    </div>
+  </div>
