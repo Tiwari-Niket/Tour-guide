@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { TourService } from './tour.service';
 import { CommonModule } from '@angular/common';
 import { TourComponent } from './tour/tour.component';
+import { NewComponent } from "./new/new.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, TourComponent],
+  imports: [CommonModule, TourComponent, NewComponent],
   templateUrl: './app.component.html',
   styleUrls: ["./app.component.scss"],
 })
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
       { selector: '#step1', title: 'Step 1', description: 'This is the first step.' },
       { selector: '#step2', title: 'Step 2', description: 'This is the second step.' },
       { selector: '#step3', title: 'Step 3', description: 'This is the third step.' },
+      { selector: '#step4', title: 'Step 4', description: 'This is the forth step.' },
     ]);
   }
 }

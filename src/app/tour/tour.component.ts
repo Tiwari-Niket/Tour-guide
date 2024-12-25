@@ -23,6 +23,7 @@ export class TourComponent implements OnInit {
     this.currentStep = this.tourService.getCurrentStep();
     if (this.currentStep) {
       const element = document.querySelector(this.currentStep.selector);
+      element?.classList.add('border');
       if (element) {
         const rect = element.getBoundingClientRect();
         this.boxPosition = {
@@ -34,16 +35,25 @@ export class TourComponent implements OnInit {
   }
 
   next() {
+    this.currentStep = this.tourService.getCurrentStep();
+    const element = document.querySelector(this.currentStep.selector);
+    element?.classList.remove('border');
     this.tourService.nextStep();
     this.updateStep();
   }
 
   previous() {
+    this.currentStep = this.tourService.getCurrentStep();
+    const element = document.querySelector(this.currentStep.selector);
+    element?.classList.remove('border');
     this.tourService.previousStep();
     this.updateStep();
   }
 
   endTour() {
+    this.currentStep = this.tourService.getCurrentStep();
+    const element = document.querySelector(this.currentStep.selector);
+    element?.classList.remove('border');
     this.currentStep = null;
   }
 
